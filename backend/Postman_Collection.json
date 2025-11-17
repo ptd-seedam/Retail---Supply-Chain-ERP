@@ -1,0 +1,764 @@
+{
+  "info": {
+    "name": "Retail Supply Chain ERP API",
+    "description": "Complete API collection for ERP system with Core, HRM, CRM, and Ecommerce modules",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "register"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\",\n  \"password_confirmation\": \"password123\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "login"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Current User",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/me",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "me"]
+            }
+          }
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/logout",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "logout"]
+            }
+          }
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/refresh",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "refresh"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Core - Warehouses",
+      "item": [
+        {
+          "name": "List Warehouses",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/warehouses?page=1&per_page=15",
+              "host": ["{{base_url}}"],
+              "path": ["warehouses"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "per_page",
+                  "value": "15"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Warehouse",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/warehouses",
+              "host": ["{{base_url}}"],
+              "path": ["warehouses"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"WH001\",\n  \"name\": \"Main Warehouse\",\n  \"location\": \"123 Main Street\",\n  \"description\": \"Main storage facility\",\n  \"status\": \"active\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Warehouse",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/warehouses/1",
+              "host": ["{{base_url}}"],
+              "path": ["warehouses", "1"]
+            }
+          }
+        },
+        {
+          "name": "Update Warehouse",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/warehouses/1",
+              "host": ["{{base_url}}"],
+              "path": ["warehouses", "1"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Warehouse\",\n  \"status\": \"active\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Warehouse",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/warehouses/1",
+              "host": ["{{base_url}}"],
+              "path": ["warehouses", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Active Warehouses",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/warehouses-active",
+              "host": ["{{base_url}}"],
+              "path": ["warehouses-active"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Core - Products",
+      "item": [
+        {
+          "name": "List Products",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/products?page=1&per_page=15",
+              "host": ["{{base_url}}"],
+              "path": ["products"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "per_page",
+                  "value": "15"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/products",
+              "host": ["{{base_url}}"],
+              "path": ["products"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sku\": \"PRD001\",\n  \"barcode\": \"1234567890123\",\n  \"name\": \"Laptop Dell\",\n  \"description\": \"High-performance laptop\",\n  \"category_id\": 1,\n  \"cost_price\": 500,\n  \"selling_price\": 799.99,\n  \"reorder_level\": 5,\n  \"status\": \"active\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Product",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/products/1",
+              "host": ["{{base_url}}"],
+              "path": ["products", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Products by Category",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/products/category/1",
+              "host": ["{{base_url}}"],
+              "path": ["products", "category", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Active Products",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/products-active",
+              "host": ["{{base_url}}"],
+              "path": ["products-active"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Core - Categories",
+      "item": [
+        {
+          "name": "List Categories",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/categories?page=1&per_page=15",
+              "host": ["{{base_url}}"],
+              "path": ["categories"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "per_page",
+                  "value": "15"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Category",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/categories",
+              "host": ["{{base_url}}"],
+              "path": ["categories"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Electronics\",\n  \"description\": \"Electronic products\",\n  \"parent_id\": null,\n  \"sort_order\": 1,\n  \"status\": \"active\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Category Tree",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/categories/tree",
+              "host": ["{{base_url}}"],
+              "path": ["categories", "tree"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "HRM - Employees",
+      "item": [
+        {
+          "name": "List Employees",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/employees?page=1&per_page=15",
+              "host": ["{{base_url}}"],
+              "path": ["employees"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "per_page",
+                  "value": "15"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Employee",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/employees",
+              "host": ["{{base_url}}"],
+              "path": ["employees"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": 1,\n  \"employee_code\": \"EMP001\",\n  \"department_id\": 1,\n  \"shift_id\": 1,\n  \"phone\": \"0123456789\",\n  \"address\": \"123 Main Street\",\n  \"hire_date\": \"2025-01-01\",\n  \"status\": \"active\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "HRM - Salaries",
+      "item": [
+        {
+          "name": "List Salaries",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/salaries?page=1&per_page=15",
+              "host": ["{{base_url}}"],
+              "path": ["salaries"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "per_page",
+                  "value": "15"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Salary",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/salaries",
+              "host": ["{{base_url}}"],
+              "path": ["salaries"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"employee_id\": 1,\n  \"year\": 2025,\n  \"month\": 11,\n  \"base_salary\": 5000000,\n  \"bonus\": 500000,\n  \"deductions\": 100000,\n  \"status\": \"pending\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Approve Salary",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/salaries/1/approve",
+              "host": ["{{base_url}}"],
+              "path": ["salaries", "1", "approve"]
+            }
+          }
+        },
+        {
+          "name": "Mark Salary as Paid",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/salaries/1/mark-paid",
+              "host": ["{{base_url}}"],
+              "path": ["salaries", "1", "mark-paid"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "CRM - Customers",
+      "item": [
+        {
+          "name": "List Customers",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/customers?page=1&per_page=15",
+              "host": ["{{base_url}}"],
+              "path": ["customers"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "per_page",
+                  "value": "15"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Customer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/customers",
+              "host": ["{{base_url}}"],
+              "path": ["customers"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"CUST001\",\n  \"name\": \"Acme Corp\",\n  \"email\": \"contact@acme.com\",\n  \"phone\": \"0123456789\",\n  \"address\": \"123 Business Street\",\n  \"group_id\": 1,\n  \"credit_limit\": 10000000,\n  \"status\": \"active\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ecommerce - Orders",
+      "item": [
+        {
+          "name": "List Orders",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/orders?page=1&per_page=15",
+              "host": ["{{base_url}}"],
+              "path": ["orders"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "per_page",
+                  "value": "15"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/orders",
+              "host": ["{{base_url}}"],
+              "path": ["orders"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"order_number\": \"ORD001\",\n  \"customer_id\": 1,\n  \"warehouse_id\": 1,\n  \"status\": \"pending\",\n  \"discount_amount\": 100000,\n  \"tax_amount\": 50000,\n  \"promotion_id\": null,\n  \"notes\": \"Regular delivery\",\n  \"items\": [\n    {\n      \"product_id\": 1,\n      \"quantity\": 5,\n      \"unit_price\": 799.99\n    }\n  ]\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Order",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/orders/1",
+              "host": ["{{base_url}}"],
+              "path": ["orders", "1"]
+            }
+          }
+        },
+        {
+          "name": "Complete Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/orders/1/complete",
+              "host": ["{{base_url}}"],
+              "path": ["orders", "1", "complete"]
+            }
+          }
+        },
+        {
+          "name": "Cancel Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/orders/1/cancel",
+              "host": ["{{base_url}}"],
+              "path": ["orders", "1", "cancel"]
+            }
+          }
+        },
+        {
+          "name": "Calculate Order Total",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/orders/1/calculate-total",
+              "host": ["{{base_url}}"],
+              "path": ["orders", "1", "calculate-total"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000/api/v1",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}

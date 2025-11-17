@@ -27,7 +27,11 @@
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
             "Modules\\Core\\": "Modules/Core/app/",
-            "Modules\\Auth\\": "Modules/Auth/app/"
+            "Modules\\Auth\\": "Modules/Auth/app/",
+            "Modules\\HRM\\": "Modules/HRM/app/",
+            "Modules\\CRM\\": "Modules/CRM/app/",
+            "Modules\\Ecommerce\\": "Modules/Ecommerce/app/",
+            "Modules\\CMS\\": "Modules/CMS/app/"
         }
     },
     "autoload-dev": {
