@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\CRM\Http\Controllers\CRMController;
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::resource('crms', CRMController::class)->names('crm');
-});
+// Web routes are not used in this pure API application.
+// All routes are defined in api.php

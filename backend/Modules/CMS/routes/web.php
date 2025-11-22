@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\CMS\Http\Controllers\CMSController;
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::resource('cms', CMSController::class)->names('cms');
-});
+// Web routes are not used in this pure API application.
+// All routes are defined in api.php

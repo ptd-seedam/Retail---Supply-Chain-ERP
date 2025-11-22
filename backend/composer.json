@@ -32,7 +32,10 @@
             "Modules\\CRM\\": "Modules/CRM/app/",
             "Modules\\Ecommerce\\": "Modules/Ecommerce/app/",
             "Modules\\CMS\\": "Modules/CMS/app/"
-        }
+        },
+        "files": [
+            "Modules/Core/app/Helpers/AuthorizationHelper.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

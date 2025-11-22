@@ -1,0 +1,21 @@
+includes:
+  - vendor/phpstan/extension-installer/bootstrap.php
+
+parameters:
+  level: 5
+  paths:
+    - app
+    - bootstrap
+    - config
+    - database
+    - routes
+    - Modules
+  excludePaths:
+    - tests/
+  ignoreErrors:
+    # Ignore undefined methods on Auth::user() since they're dynamically added by User model
+    - message: '#Undefined method.*hasRole|hasAnyRole|hasAllRoles|hasPermission|hasAnyPermission|hasAllPermissions|getAllPermissions|getRoleSlugs#'
+      paths:
+        - app/Http/Middleware/*.php
+        - Modules/Core/app/Helpers/*.php
+        - app/Services/*.php

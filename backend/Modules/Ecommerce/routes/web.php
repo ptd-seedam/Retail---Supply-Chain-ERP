@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Ecommerce\Http\Controllers\EcommerceController;
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::resource('ecommerces', EcommerceController::class)->names('ecommerce');
-});
+// Web routes are not used in this pure API application.
+// All routes are defined in api.php

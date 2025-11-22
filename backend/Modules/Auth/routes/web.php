@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Auth\Http\Controllers\AuthController;
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::resource('auths', AuthController::class)->names('auth');
-});
+// Web routes are not used in this pure API application.
+// All routes are defined in api.php
