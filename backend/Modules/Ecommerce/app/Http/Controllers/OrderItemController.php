@@ -18,7 +18,7 @@ class OrderItemController extends BaseController
     {
         $item = \Modules\Ecommerce\Models\OrderItem::findOrFail($itemId);
         if ($item->order_id != $orderId) {
-            return $this->errorResponse(null, 'Sản phẩm không thuộc đơn hàng này', 404);
+            return $this->errorResponse('Sản phẩm không thuộc đơn hàng này', 404);
         }
         return $this->successResponse(['item' => $item], 'Chi tiết sản phẩm');
     }
@@ -36,7 +36,7 @@ class OrderItemController extends BaseController
     {
         $item = \Modules\Ecommerce\Models\OrderItem::findOrFail($itemId);
         if ($item->order_id != $orderId) {
-            return $this->errorResponse(null, 'Sản phẩm không thuộc đơn hàng này', 404);
+            return $this->errorResponse('Sản phẩm không thuộc đơn hàng này', 404);
         }
 
         $item->update($request->validated());
@@ -47,7 +47,7 @@ class OrderItemController extends BaseController
     {
         $item = \Modules\Ecommerce\Models\OrderItem::findOrFail($itemId);
         if ($item->order_id != $orderId) {
-            return $this->errorResponse(null, 'Sản phẩm không thuộc đơn hàng này', 404);
+            return $this->errorResponse('Sản phẩm không thuộc đơn hàng này', 404);
         }
 
         $item->delete();
